@@ -281,7 +281,7 @@
             <div class="column is-four-fifths">
                 <h2 class="title is-3">Inpainting</h2>
                 <p>
-                    Classically, interpolation between two multivariates random variables $x_0$ and $x_1$ is
+                    Classically, interpolation between two multivariates random variables \(x_0\) and \(x_1\) is
                     parametrized by two scalars \(\alpha\) and \(\beta\) via the
                     very simple relation \(I_{\alpha, \beta}(x_0,x_1) = \alpha x_0 + \beta x_1\), where \(x_0 \sim
                     \rho_0\), \(x_1 \sim \rho_1\), and \(\alpha, \beta \in [0, 1]\).
@@ -292,6 +292,27 @@
                     size of input space, pixel-wise
                     inpainting becomes now a trivial task.
                 </p>
+                <b>Dataset: AFHQ Cat</b>
+                <div class="container">
+                    <div class="imgContainer">
+                        <img src="static/images/0089.png" height="50%" width="50%">
+                        <p>Original image</p>
+                    </div>
+
+                    <div class="imgContainer">
+                        <video poster="" id="steve" autoplay controls muted loop playsinline height="50%" width="50%">
+                            <source src="./static/videos/block_0089.mp4" type="video/mp4">
+                        </video>
+                        <p>Block masking</p>
+                    </div>
+                    <div class="imgContainer">
+                        <video poster="" id="steve" autoplay controls muted loop playsinline height="50%" width="50%">
+                            <source src="./static/videos/rand_0089.mp4" type="video/mp4">
+                        </video>
+                        <p>Random masking</p>
+                    </div>
+                </div>
+                <b>Dataset: CelebA</b>
                 <div class="container">
                     <div class="imgContainer">
                         <img src="static/images/0089.png" height="50%" width="50%">
