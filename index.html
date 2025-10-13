@@ -276,13 +276,13 @@
         </div>
 
 
-        <!-- Paper video. -->
+        <!-- Inpainting. -->
         <div class="columns is-centered has-text-centered">
             <div class="column is-four-fifths">
                 <h2 class="title is-3">Inpainting</h2>
                 <p>
                     Classically, interpolation between two multivariates random variables $x_0$ and $x_1$ is
-                    parametrized by two scalars $\alpha$ and $\beta$ via the
+                    parametrized by two scalars \(\alpha\) and \(\beta\) via the
                     very simple relation \(I_{\alpha, \beta}(x_0,x_1) = \alpha x_0 + \beta x_1\), where \(x_0 \sim
                     \rho_0\), \(x_1 \sim \rho_1\), and \(\alpha, \beta \in [0, 1]\).
                     By their nature of scalar parameters, they acts uniformally on every entries, letting little
@@ -292,22 +292,34 @@
                     size of input space, pixel-wise
                     inpainting becomes now a trivial task.
                 </p>
-                <div class="image123">
+                <div class="container">
                     <div class="imgContainer">
-                        <video poster="" id="steve" autoplay controls muted loop playsinline height="70%" width="70%">
+                        <!-- <img src="static/images/0089.png" height="50%" width="50%"> -->
+                        <video poster="" id="steve" autoplay controls muted loop playsinline height="50%" width="50%">
                             <source src="./static/videos/block_0089.mp4" type="video/mp4">
                         </video>
+
+                        <p>Original image</p>
+                    </div>
+
+                    <div class="imgContainer">
+                        <video poster="" id="steve" autoplay controls muted loop playsinline height="50%" width="50%">
+                            <source src="./static/videos/block_0089.mp4" type="video/mp4">
+                        </video>
+                        <p>Block masking</p>
                     </div>
                     <div class="imgContainer">
-                        <video poster="" id="steve" autoplay controls muted loop playsinline height="70%" width="70%">
+                        <video poster="" id="steve" autoplay controls muted loop playsinline height="50%" width="50%">
                             <source src="./static/videos/rand_0089.mp4" type="video/mp4">
+                        </video>
+                        <p>Random masking</p>
                     </div>
                 </div>
             </div>
-            <!--/ Paper video. -->
+            <!--/Inpainting. -->
         </div>
 
-        <!-- Paper video. -->
+        <!-- Constrained planning. -->
         <div class="columns is-centered has-text-centered">
             <div class="column is-four-fifths">
                 <h2 class="title is-3">Constrained planning</h2>
@@ -336,8 +348,18 @@
                 </p>
             </div>
         </div>
-        <!--paper video-->
+        <!-- Constrained planning. -->
 
+        <!-- Posterior sampling. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Posterior sampling</h2>
+                <p>
+
+                </p>
+            </div>
+        </div>
+        <!-- Posterior sampling. -->
 
 
         <!-- Concurrent Work. -->
