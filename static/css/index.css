@@ -8,7 +8,15 @@ body {
 
 .container {
   display: flex;
+  /* Utiliser flexbox pour aligner l'image et les vidéos */
+  align-items: center;
+  /* Aligner verticalement au centre */
+  max-width: 1000px;
+  /* Largeur maximale du conteneur */
+  margin: auto;
+  /* Centrer le conteneur */
 }
+
 
 .container video {
   margin: 10px;
