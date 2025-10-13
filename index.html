@@ -164,7 +164,7 @@
                             <strong>TL;DR</strong> This paper extends stochastic interpolants formalism to solve a very
                             large variety of tasks with <b>one single
                                 trained model</b>. It shows strong performance on high dimensional datasets such as
-                            CelebA and \(\phi^4\). Experimental proofs include
+                            CelebA and \(\varphi^4\). Experimental proofs include
                             posterior sampling, inpainting and highly-constrained planning.
                         </p>
                     </div>
@@ -315,21 +315,34 @@
                 <b>Dataset: CelebA</b>
                 <div class="container">
                     <div class="imgContainer">
-                        <img src="static/images/0089.png" height="50%" width="50%">
+                        <img src="static/images/000034.jpg" height="50%" width="50%">
                         <p>Original image</p>
                     </div>
 
                     <div class="imgContainer">
                         <video poster="" id="steve" autoplay controls muted loop playsinline height="50%" width="50%">
-                            <source src="./static/videos/block_0089.mp4" type="video/mp4">
+                            <source src="./static/videos/block_000034.mp4" type="video/mp4">
                         </video>
                         <p>Block masking</p>
                     </div>
                     <div class="imgContainer">
                         <video poster="" id="steve" autoplay controls muted loop playsinline height="50%" width="50%">
-                            <source src="./static/videos/rand_0089.mp4" type="video/mp4">
+                            <source src="./static/videos/rand_000034.mp4" type="video/mp4">
                         </video>
                         <p>Random masking</p>
+                    </div>
+                </div>
+                <b>Dataset: \(\varphi^4\)</b>
+                <div class="container">
+                    <div class="imgContainer">
+                        <img src="." height="50%" width="50%">
+                        <p>Original image</p>
+                    </div>
+                    <div class="imgContainer">
+                        <video poster="" id="steve" autoplay controls muted loop playsinline height="50%" width="50%">
+                            <source src="" type="video/mp4">
+                        </video>
+                        <p>Block masking</p>
                     </div>
                 </div>
             </div>
@@ -358,12 +371,23 @@
                 <p>
                     The constraints do not necessarily have to apply only on the end points, you can also impose the
                     path to take the detour you want.
-                <div class="image123">
-                    <img src="static/images/image1.jpg" height="200" width="200" style="float:left">
-                    <img class="middle-img" src="static/images/image2.jpg" / height="200" width="200">
-                </div>
                 </p>
+                <div class="container">
+                    <div class="imgContainer">
+                        <video controls autoplay controls muted loop playsinline height="60%" width="60%">
+                            <source src="./static/videos/path_non_constrained.mp4" type="video/mp4">
+                        </video>
+                        <p>Shortest path</p>
+                    </div>
+                    <div class="imgContainer">
+                        <video controls autoplay controls muted loop playsinline height="60%" width="60%">
+                            <source src="./static/videos/path_constrained.mp4" type="video/mp4">
+                        </video>
+                        <p>Path under a constraint at mid-length</p>
+                    </div>
+                </div>
             </div>
+        </div>
         </div>
         <!-- Constrained planning. -->
 
@@ -372,7 +396,18 @@
             <div class="column is-four-fifths">
                 <h2 class="title is-3">Posterior sampling</h2>
                 <p>
+                    With the very same model, you can perform exact posterior sampling. Take here the example of
+                    \(\varphi^4\) model, coming from quantum field theory, which famously exhibit a phase transition
+                    phenomena.
+                </p>
+                <b>Dataset: \(\varphi^4\)</b>
+                <div class="container">
 
+                    <div class="imgContainer">
+                        <img src="static/images/phi4-post-1.png" height="80%" width="80%" style="float:left">
+                    </div>
+
+                </div>
                 </p>
             </div>
         </div>
