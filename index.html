@@ -355,7 +355,9 @@
                 <h2 class="title is-3">Constrained planning</h2>
                 <p>This problem takes root in Reinforcement Learning (RL). Take a maze and two end points. The task
                     is to find the shortest path joining them
-                    while abiding by the contraints imposed in the environment.
+                    while abiding by the contraints imposed in the environment. With stochastic interpolants, to
+                    generate a path, you simply fix the first and last point, and eventually let diffuse all the
+                    other intermediate points.
                 </p>
                 <div class="container">
                     <video controls autoplay controls muted loop playsinline height="30%" width="30%">
@@ -369,7 +371,7 @@
                     </video>
                 </div>
                 <p>
-                    The constraints do not necessarily have to apply only on the end points, you can also impose the
+                    The constraints do not necessarily have to apply only on the end points, you can also impose to the
                     path to take the detour you want.
                 </p>
                 <div class="container">
@@ -398,7 +400,8 @@
                 <p>
                     With the very same model, you can perform exact posterior sampling. Take here the example of
                     \(\varphi^4\) model, coming from quantum field theory, which famously exhibit a phase transition
-                    phenomena.
+                    phenomena. Simply by shifting and scaling interpolation coefficients \(\alpha\) and \(\beta\), you
+                    can sample from a posterior without <b>retraining or any kind of approximation</b>.
                 </p>
                 <b>Dataset: \(\varphi^4\)</b>
                 <div class="container">
