@@ -156,21 +156,21 @@
 
     <section class="section">
         <div class="container is-max-desktop">
-            <!-- TD;DR. -->
+            <!-- TL;DR. -->
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
                     <div class="content has-text-justified">
                         <p>
                             <strong>TL;DR</strong> This paper extends stochastic interpolants formalism to solve a very
                             large variety of tasks with <b>one single
-                                trained model</b>. It shows strong performance on high dimensional datasets such as
-                            CelebA and \(\varphi^4\). Experimental proofs include
+                                trained model</b>. It shows strong performance on high-dimensional datasets such as
+                            CelebA and \(\varphi^4\). Experimental proofs include exact
                             posterior sampling, inpainting and highly-constrained planning.
                         </p>
                     </div>
                 </div>
             </div>
-            <!--/ TD;DR. -->
+            <!--/ TL;DR. -->
         </div>
     </section>
 
@@ -277,9 +277,9 @@
 
 
         <!-- Inpainting. -->
-        <div class="columns is-centered has-text-centered">
+        <div class="columns is-centered">
             <div class="column is-four-fifths">
-                <h2 class="title is-3">Inpainting</h2>
+                <h2 class="title is-3 has-text-centered">Inpainting</h2>
                 <p>
                     Classically, interpolation between two multivariates random variables \(x_0\) and \(x_1\) is
                     parametrized by two scalars \(\alpha\) and \(\beta\) via the
@@ -292,8 +292,8 @@
                     size of input space, pixel-wise
                     inpainting becomes now a trivial task.
                 </p>
-                <b>Dataset: AFHQ Cat</b>
-                <div class="container">
+                <div class="has-text-centered"><b>Dataset: AFHQ Cat</b></div>
+                <div class="container has-text-centered">
                     <div class="imgContainer">
                         <img src="static/images/0089.png" height="50%" width="50%">
                         <p>Original image</p>
@@ -312,8 +312,8 @@
                         <p>Random masking</p>
                     </div>
                 </div>
-                <b>Dataset: CelebA</b>
-                <div class="container">
+                <div class="has-text-centered"><b>Dataset: CelebA</b></div>
+                <div class="container has-text-centered">
                     <div class="imgContainer">
                         <img src="static/images/000034.jpg" height="50%" width="50%">
                         <p>Original image</p>
@@ -332,8 +332,8 @@
                         <p>Random masking</p>
                     </div>
                 </div>
-                <b>Dataset: \(\varphi^4\)</b>
-                <div class="container">
+                <div class="has-text-centered"><b>Dataset: \(\varphi^4\)</b></div>
+                <div class="container has-text-centered">
                     <div class="imgContainer">
                         <img src="." height="50%" width="50%">
                         <p>Original image</p>
@@ -350,9 +350,9 @@
         </div>
 
         <!-- Constrained planning. -->
-        <div class="columns is-centered has-text-centered">
+        <div class="columns is-centered">
             <div class="column is-four-fifths">
-                <h2 class="title is-3">Constrained planning</h2>
+                <h2 class="title is-3 has-text-centered">Constrained planning</h2>
                 <p>This problem takes root in Reinforcement Learning (RL). Take a maze and two end points. The task
                     is to find the shortest path joining them
                     while abiding by the contraints imposed in the environment. With stochastic interpolants, to
@@ -375,13 +375,15 @@
                     path to take the detour you want.
                 </p>
                 <div class="container">
-                    <div class="imgContainer">
+                    <div class="imgContainer has-text-centered">
                         <video controls autoplay controls muted loop playsinline height="60%" width="60%">
                             <source src="./static/videos/path_non_constrained.mp4" type="video/mp4">
                         </video>
-                        <p>Shortest path</p>
+                        <div class="has-text-centered">
+                            <p>Shortest path</p>
+                        </div>
                     </div>
-                    <div class="imgContainer">
+                    <div class="imgContainer has-text-centered">
                         <video controls autoplay controls muted loop playsinline height="60%" width="60%">
                             <source src="./static/videos/path_constrained.mp4" type="video/mp4">
                         </video>
@@ -390,35 +392,33 @@
                 </div>
             </div>
         </div>
-        </div>
         <!-- Constrained planning. -->
 
         <!-- Posterior sampling. -->
-        <div class="columns is-centered has-text-centered">
+        <div class="columns is-centered">
             <div class="column is-four-fifths">
-                <h2 class="title is-3">Posterior sampling</h2>
+                <h2 class="title is-3 has-text-centered">Posterior sampling</h2>
                 <p>
                     With the very same model, you can perform exact posterior sampling. Take here the example of
                     \(\varphi^4\) model, coming from quantum field theory, which famously exhibit a phase transition
                     phenomena. Simply by shifting and scaling interpolation coefficients \(\alpha\) and \(\beta\), you
                     can sample from a posterior without <b>retraining or any kind of approximation</b>.
                 </p>
-                <b>Dataset: \(\varphi^4\)</b>
+                <div class="has-text-centered"><b>Dataset: \(\varphi^4\)</b></div>
                 <div class="container">
 
                     <div class="imgContainer">
                         <img src="static/images/phi4-post-1.png" height="80%" width="80%" style="float:left">
                     </div>
-
                 </div>
                 </p>
             </div>
         </div>
         <!-- Posterior sampling. -->
+    </section>
 
-
-        <!-- Concurrent Work. -->
-        <!-- <div class="columns is-centered">
+    <!-- Concurrent Work. -->
+    <!-- <div class="columns is-centered">
             <div class="column is-full-width">
                 <h2 class="title is-3">Related Links</h2>
 
@@ -451,22 +451,20 @@
                 </div>
             </div>
         </div> -->
-        <!--/ Concurrent Work. -->
-
-        </div>
-    </section>
-
+    <!--/ Concurrent Work. -->
 
     <section class="section" id="BibTeX">
-        <div class="container is-max-desktop content">
-            <h2 class="title">BibTeX</h2>
-            <pre><code>@article{negrel2025multitasklearningstochasticinterpolants,
-  author    = {Negrel, Hugo and Coeurdoux, Florentin and Albergo, Michael and Vanden-Eijnden, Eric},
-  title     = {Multitask Learning with Stochastic Interpolants},
-  journal   = {NeurIPS2025},
-  year      = {2025},
-  url       = {https://arxiv.org/abs/2508.04605}
-}</code></pre>
+        <div class="columns is-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">BibTeX</h2>
+                <pre><code>@article{negrel2025multitasklearningstochasticinterpolants,
+        author    = {Negrel, Hugo and Coeurdoux, Florentin and Albergo, Michael and Vanden-Eijnden, Eric},
+        title     = {Multitask Learning with Stochastic Interpolants},
+        journal   = {NeurIPS2025},
+        year      = {2025},
+        url       = {https://arxiv.org/abs/2508.04605}
+                }</code></pre>
+            </div>
         </div>
     </section>
 
