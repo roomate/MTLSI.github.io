@@ -275,12 +275,12 @@
                     \rho_0\), \(x_1 \sim \rho_1\), and \(\alpha, \beta \in [0, 1]\).
                     By their nature of scalar parameters, they acts uniformally on every entries, letting little
                     flexibility in the diffusion process.
-                    Now, define \(I_{\alpha, \beta}(x_0, x_1) = \alpha \odot x_0 + \beta \odot x_1\) with vector
-                    \(\alpha \in [0,1]^{n}\) and \(\beta \in [0,1]^n\). While it significantly increases the
-                    size of input space, pixel-wise
+                    Now, defining \(I_{\alpha, \beta}(x_0, x_1) = \alpha \odot x_0 + \beta \odot x_1\) with vector
+                    \(\alpha \in [0,1]^{n}\) and \(\beta \in [0,1]^n\) significantly increases the
+                    size of input space; pixel-wise
                     inpainting becomes now a trivial task.
                 </p>
-                <div class="has-text-centered"><b>Dataset: AFHQ Cat</b></div>
+                <div class="has-text-centered"><b>Dataset: AFHQ-Cat</b></div>
                 <div class="container has-text-centered">
                     <div class="imgContainer">
                         <img src="static/images/0089.png" height="50%" width="50%">
@@ -323,14 +323,15 @@
                 <div class="has-text-centered"><b>Dataset: \(\varphi^4\)</b></div>
                 <div class="container has-text-centered">
                     <div class="imgContainer">
-                        <img src="." height="50%" width="50%">
+                        <img src="static/images/original.jpg" height="23.5%" width="23.5%">
                         <p>Original image</p>
                     </div>
                     <div class="imgContainer">
-                        <video poster="" id="steve" autoplay controls muted loop playsinline height="50%" width="50%">
-                            <source src="" type="video/mp4">
+                        <video poster="" id="steve" autoplay controls muted loop playsinline height="51%" width="51%"
+                            style="position: relative; right: 180px;">
+                            <source src="static/videos/phi4.mp4" type="video/mp4">
                         </video>
-                        <p>Block masking</p>
+                        <p style="position: relative; right: 180px;">Block masking</p>
                     </div>
                 </div>
             </div>
@@ -360,12 +361,28 @@
                 </div>
                 <p>
                     The constraints do not necessarily have to apply only on the end points, you can also impose to the
-                    path to take the detour you want.
+                    path to take the detour you want. The path lenght adapts accordingly. A small white dot represents
+                    the constraints applied
+                    on the path, forcing it to take a detour.
                 </p>
                 <div class="container">
                     <div class="imgContainer has-text-centered">
                         <video controls autoplay controls muted loop playsinline height="60%" width="60%">
-                            <source src="./static/videos/path_non_constrained.mp4" type="video/mp4">
+                            <source src="./static/videos/path_nc.mp4" type="video/mp4">
+                        </video>
+                        <div class="has-text-centered">
+                        </div>
+                    </div>
+                    <div class="imgContainer has-text-centered">
+                        <video controls autoplay controls muted loop playsinline height="60%" width="60%">
+                            <source src="./static/videos/path_c.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="imgContainer has-text-centered">
+                        <video controls autoplay controls muted loop playsinline height="60%" width="60%">
+                            <source src="./static/videos/path2_nc.mp4" type="video/mp4">
                         </video>
                         <div class="has-text-centered">
                             <p>Shortest path</p>
@@ -373,7 +390,7 @@
                     </div>
                     <div class="imgContainer has-text-centered">
                         <video controls autoplay controls muted loop playsinline height="60%" width="60%">
-                            <source src="./static/videos/path_constrained.mp4" type="video/mp4">
+                            <source src="./static/videos/path2_c.mp4" type="video/mp4">
                         </video>
                         <p>Path under a constraint at mid-length</p>
                     </div>
@@ -389,7 +406,8 @@
                 <p>
                     With the very same model, you can perform exact posterior sampling. Take here the example of
                     \(\varphi^4\) model, coming from quantum field theory, which famously exhibit a phase transition
-                    phenomena. Simply by shifting and scaling interpolation coefficients \(\alpha\) and \(\beta\), you
+                    phenomena. Simply by shifting and scaling interpolation coefficients \(\alpha\) and \(\beta\),
+                    you
                     can sample from a posterior without <b>retraining or any kind of approximation</b>.
                 </p>
                 <div class="has-text-centered"><b>Dataset: \(\varphi^4\)</b></div>
