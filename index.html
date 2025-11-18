@@ -286,9 +286,10 @@
                 </p>
                 <div class="has-text-centered"><b>Dataset: AFHQ-Cat</b></div>
                 <div class="container has-text-centered">
-                    <div class="imgContainer">
-                        <img src="static/images/0089.png" height="50%" width="50%">
-                        <p>Original image</p>
+                    <div class="imgContainer" , display: flex;>
+                        <img src="static/images/0089.png" height="52%" width="52%" ,
+                            style="position: relative; top: 50%; transform: translateY(12px);">
+                        <p style="margin: 22px 0px 0px 0px;">Original image</p>
                     </div>
 
                     <div class="imgContainer">
@@ -307,8 +308,9 @@
                 <div class="has-text-centered"><b>Dataset: CelebA</b></div>
                 <div class="container has-text-centered">
                     <div class="imgContainer">
-                        <img src="static/images/000034.jpg" height="50%" width="50%">
-                        <p>Original image</p>
+                        <img src="static/images/000034.jpg" height="50%" width="50%" ,
+                            style="position: relative; top: 50%; transform: translateY(12px);">
+                        <p style="margin: 22px 0px 0px 0px;">Original image</p>
                     </div>
 
                     <div class="imgContainer">
@@ -327,8 +329,9 @@
                 <div class="has-text-centered"><b>Dataset: \(\varphi^4\)</b></div>
                 <div class="container has-text-centered">
                     <div class="imgContainer">
-                        <img src="static/images/original.jpg" height="23.5%" width="23.5%">
-                        <p>Original image</p>
+                        <img src="static/images/original.jpg" height="23.5%" width="23.5%" ,
+                            style="position: relative; top: 50%; transform: translateY(12px);">
+                        <p style="margin: 22px 0px 0px 0px;">Original image</p>
                     </div>
                     <div class="imgContainer">
                         <video poster="" id="steve" autoplay controls muted loop playsinline height="51%" width="51%"
@@ -349,8 +352,8 @@
                 <p>This problem takes root in Reinforcement Learning (RL). Take a maze and two end points. The task
                     is to find the shortest path joining them
                     while abiding by the contraints imposed in the environment. With stochastic interpolants, to
-                    generate a path, you simply fix the first and last point, and eventually let diffuse all the
-                    other intermediate points.
+                    generate a path, you simply fix the first and last point, and eventually let diffuse all
+                    other intermediates points.
                 </p>
                 <div class="container">
                     <video controls autoplay controls muted loop playsinline height="30%" width="30%">
@@ -377,7 +380,7 @@
                         <div class="has-text-centered">
                         </div>
                     </div>
-                    <div class="imgContainer has-text-centered">
+                    <div class="imgContainer has-text-centered" , margin: 0>
                         <video controls autoplay controls muted loop playsinline height="60%" width="60%">
                             <source src="./static/videos/path_c.mp4" type="video/mp4">
                         </video>
