@@ -9,7 +9,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--Embedd LateX dans ce fichier HTML-->
-    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script> -->
+    <!-- KaTeX for LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+        integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+        integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
 
     <title>Multitask Learning with Stochastic Interpolants</title>
 
@@ -120,6 +134,10 @@
                                 University, New York</span>
                         </div>
 
+                        <div class="has-text-centered" style="margin-top: 1.5em;">
+                            <span class="tag is-info is-medium">Spotlight NeurIPS 2025</span>
+                        </div>
+
                         <div class="column has-text-centered">
                             <div class="publication-links">
                                 <!-- PDF Link. -->
@@ -167,12 +185,11 @@
                     <div class="content has-text-justified">
                         <p>
                             <strong>TL;DR</strong> This paper generalizes and extends stochastic interpolants formalism
-                            to solve a very
-                            large variety of tasks with <b>one single
+                            to solve a very large variety of tasks with <b>one single
                                 trained model</b>. It provides zero-shot versatility; experimental proofs include exact
                             posterior sampling, inpainting and highly-constrained planning on high-dimensional datasets
                             such as
-                            CelebA and \(\varphi^4\).
+                            CelebA and $\varphi^4$.
                         </p>
                     </div>
                 </div>
@@ -231,13 +248,12 @@
     </section> -->
 
     <section class="section">
-        <div class="container is-max-desktop">
+        <div class="container is-max-desktop" , style="margin-bottom: 100px;">
             <!-- Abstract. -->
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified">
-                        <p>
                         <p>
                             We propose a framework for learning maps between probability distributions that
                             broadly generalizes the time dynamics of flow and diffusion models.
@@ -258,31 +274,57 @@
                             and multiscale modeling, suggesting its potential as a generic task-agnostic
                             alternative to specialized models.
                         </p>
-                        </p>
                     </div>
                 </div>
             </div>
             <!--/ Abstract. -->
         </div>
 
+        <div class="container is-max-desktop" , style="margin-bottom: 100px;">
+            <!-- Key Contributions. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Key Contributions</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            <b>Generalized stochastic interpolants:</b> We replace scalar time with linear operators to
+                            interpolate between distributions across dimensions. This points toward a more general
+                            paradigm of universal generative models that can be trained once and then applied to a
+                            variety of objectives.
+                        </p>
+                        <p>
+                            <b>Unified Generative framework:</b> We provide a single formalism for multitask generation
+                            with flows and
+                            diffusions, without any sort of retraining.
+                        </p>
+                        <p>
+                            <b>zero-shot versatility:</b> Perform conditional generation, inpainting, fine-tuning, and
+                            posterior sampling with one single model. You can impose hard constraints on the data
+                            generation,
+                            or make multiple generation in a row, one after another.
+                        </p>
+                        <p>
+                            <b>Universal generative models:</b> Amortize training across tasks for scalable,
+                            task-agnostic generation. Inpainting and conditional generation can be performed during the
+                            same diffusion, saving time and computing resources.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/ Key Contributions. -->
+        </div>
+
+        <hr style="border:1px solid black; background: black; border: none; margin-left: 350px; margin-right: 350px">
 
         <!-- Inpainting. -->
         <div class="columns is-centered">
             <div class="column is-four-fifths">
-                <h2 class="title is-3 has-text-centered">Inpainting</h2>
-                <p>
-                    Classically, interpolation between two multivariates random variables \(x_0\) and \(x_1\) is
-                    parametrized by two scalars \(\alpha\) and \(\beta\) via the
-                    very simple relation \(I_{\alpha, \beta}(x_0,x_1) = \alpha x_0 + \beta x_1\), where \(x_0 \sim
-                    \rho_0\), \(x_1 \sim \rho_1\), and \(\alpha, \beta \in [0, 1]\). \(\rho_0\) and \(\rho_1\) are
-                    respectively noise and data
-                    distributions, living in \(\mathbb{R}^n\).
-                    By their nature of scalar parameters, they acts uniformally on every entries, letting little
-                    flexibility in the diffusion process.
-                    Now, defining \(I_{\alpha, \beta}(x_0, x_1) = \alpha \odot x_0 + \beta \odot x_1\) with vector
-                    \(\alpha \in [0,1]^{n}\) and \(\beta \in [0,1]^n\) significantly increases the
-                    size of input space; pixel-wise
-                    inpainting becomes now a trivial task.
+                <h1 class="title is-2 has-text-centered"> Results</h1>
+                <h2 class="title is-4 has-text-centered">Inpainting</h2>
+                <p class="has-text-justified">
+                    Consider images from high-dimensional image datasets CelebA and AFHQ-Cat.
+                    With multitask stochastic interpolants, pixel-wise inpainting becomes a trivial, one-shot task.
+                    Here, we consider block and random masking, probing two radically different inpainting situation.
                 </p>
                 <div class="has-text-centered"><b>Dataset: AFHQ-Cat</b></div>
                 <div class="container has-text-centered">
@@ -305,8 +347,10 @@
                         <p>Random masking</p>
                     </div>
                 </div>
+                <hr
+                    style="border:1px solid black; background: black; border: none; margin-left: 380px; margin-right: 380px;">
                 <div class="has-text-centered"><b>Dataset: CelebA</b></div>
-                <div class="container has-text-centered">
+                <div class="container has-text-centered" , style="margin-bottom: 20px">
                     <div class="imgContainer">
                         <img src="static/images/000034.jpg" height="50%" width="50%" ,
                             style="position: relative; top: 50%; transform: translateY(12px);">
@@ -326,29 +370,24 @@
                         <p>Random masking</p>
                     </div>
                 </div>
-                <div class="has-text-centered"><b>Dataset: \(\varphi^4\)</b></div>
-                <div class="container has-text-centered">
-                    <div class="imgContainer">
-                        <img src="static/images/original.jpg" height="23.5%" width="23.5%" ,
-                            style="position: relative; top: 50%; transform: translateY(12px);">
-                        <p style="margin: 22px 0px 0px 0px;">Original image</p>
-                    </div>
-                    <div class="imgContainer">
-                        <video poster="" id="steve" autoplay controls muted loop playsinline height="51%" width="51%"
-                            style="position: relative; right: 180px;">
-                            <source src="static/videos/phi4.mp4" type="video/mp4">
-                        </video>
-                        <p style="position: relative; right: 180px;">Block masking</p>
-                    </div>
-                </div>
+                <!--/Inpainting. -->
             </div>
-            <!--/Inpainting. -->
+        </div>
+        <div class="columns is-centered is-max-desktop has-text-centered" style="margin-bottom: 20px">
+            <div class="imgContainer column is-four-fifths" style="justify-content: center">
+                <p>PSNR and SSIM metrics on CelebA and AFHQ-Cat datasets. A single generation was performed on each
+                    image.</p>
+                <img src="./static/images/tab.jpg" width="600" height="475">
+                <p class="column has-text-justified">Of all the inpainting benchmarks, multitask stochastic
+                    interpolants perform best while offering great flexibility, both on PSNR and SSIM metrics. The very
+                    same model is employed for both block and random inpainting.</p>
+            </div>
         </div>
 
         <!-- Constrained planning. -->
-        <div class="columns is-centered">
-            <div class="column is-four-fifths">
-                <h2 class="title is-3 has-text-centered">Constrained planning</h2>
+        <div class="columns is-centered is-max-desktop">
+            <div class="column is-four-fifths has-text-justified">
+                <h2 class="title is-4 has-text-centered">Constrained planning</h2>
                 <p>This problem takes root in Reinforcement Learning (RL). Take a maze and two end points. The task
                     is to find the shortest path joining them
                     while abiding by the contraints imposed in the environment. With stochastic interpolants, to
@@ -367,32 +406,33 @@
                     </video>
                 </div>
                 <p>
-                    The constraints do not necessarily have to apply only on the end points, you can also impose hard
-                    constraints on the pathway, assuming it remains feasible. A small white dot represents
-                    the constraints applied
-                    on the path, forcing it to take a detour. The path length adapts accordingly.
+                    The constraints do not necessarily have to apply only on the end points, you can also impose
+                    hard constraints on the pathway, assuming it remains feasible. A small white dot represents
+                    the constraints applied on the path, forcing it to take a detour. The path length adapts
+                    accordingly.
                 </p>
                 <div class="container">
                     <div class="imgContainer has-text-centered">
                         <video controls autoplay controls muted loop playsinline height="60%" width="60%">
                             <source src="./static/videos/path_nc.mp4" type="video/mp4">
                         </video>
-                        <div class="has-text-centered">
-                        </div>
                     </div>
-                    <div class="imgContainer has-text-centered" , margin: 0>
+                    <div class="imgContainer has-text-centered">
                         <video controls autoplay controls muted loop playsinline height="60%" width="60%">
                             <source src="./static/videos/path_c.mp4" type="video/mp4">
                         </video>
                     </div>
                 </div>
-                <div class="container">
+                <hr
+                    style="border:1px solid black; background: black; border: none; margin-left: 350px; margin-right: 350px; margin-bottom:-10px; margin-top: -10px;">
+
+                <div class="columns">
                     <div class="imgContainer has-text-centered">
                         <video controls autoplay controls muted loop playsinline height="60%" width="60%">
                             <source src="./static/videos/path2_nc.mp4" type="video/mp4">
                         </video>
                         <div class="has-text-centered">
-                            <p>Shortest path, no constraint except endpoints.</p>
+                            <p>Shortest path, no constraint except end-points.</p>
                         </div>
                     </div>
                     <div class="imgContainer has-text-centered">
@@ -407,71 +447,92 @@
         <!-- Constrained planning. -->
 
         <!-- Posterior sampling. -->
-        <div class="columns is-centered">
-            <div class="column is-four-fifths">
-                <h2 class="title is-3 has-text-centered">Posterior sampling</h2>
+        <div class="columns is-centered is-max-desktop">
+            <div class="column is-four-fifths has-text-justified">
+                <h2 class="title is-4 has-text-centered">Posterior sampling</h2>
                 <p>
-                    With the very same model, you can perform exact posterior sampling. Take here the example of
-                    \(\varphi^4\) model, coming from quantum field theory, which famously exhibit a phase transition
-                    phenomena. Consider the system with energy \(E\) under a null magnetic field and assume a field
-                    configuration
-                    can be sampled with coefficients \(\alpha\) and \(\beta\). It yields the prior distribution.
+                    With the very same model, you can perform exact posterior sampling. Take the
+                    $\varphi^4$ model. Consider the system with energy $E$ under a null magnetic field and
+                    assume a field configuration
+                    can be sampled with coefficients $\alpha$ and $\beta$. It yields the prior distribution.
                     Now, consider the same
-                    system under a magnetic field \(h\), its energy becomes \(E_r=E + (h, \varphi)\).
-                    By simply shifting the field configuration during generation process: \(\varphi_r=\varphi +
-                    \frac{\alpha^2}{\beta} h\),
-                    you can sample from the posterior without <b>retraining or any kind of approximation</b>.
+                    system under a magnetic field $h$, its energy becomes $E_r=E + (h, \varphi)$.
+                    By simply shifting the field configuration during generation process: $\varphi_r=\varphi +
+                    \frac{\alpha^2}{\beta} h$,
+                    you can sample from the posterior without <b>retraining or any kind of approximation</b>. Training
+                    data was first generated with Hamiltonian MCMC, and then compared with data generated with
+                    stochastic interpolants.
                 </p>
-                <div class="has-text-centered"><b>Dataset: \(\varphi^4\)</b></div>
+                <div class="has-text-centered"><b>Model: $\varphi^4$</b></div>
                 <div class="container">
 
                     <div class="imgContainer">
                         <img src="static/images/phi4-post-1.png" height="80%" width="80%" style="float:left">
                     </div>
                 </div>
-                </p>
+                <div class="container has-text-centered">
+                    <div class="imgContainer">
+                        <img src="static/images/original.jpg" height="23.5%" width="23.5%" ,
+                            style="position: relative; top: 50%; transform: translateY(12px);">
+                        <p style="margin: 22px 0px 0px 0px;">Original image</p>
+                    </div>
+                    <div class="imgContainer">
+                        <video poster="" id="steve" autoplay controls muted loop playsinline height="51%" width="51%"
+                            style="position: relative; right: 180px;">
+                            <source src="static/videos/phi4.mp4" type="video/mp4">
+                        </video>
+                        <p style="position: relative; right: 180px;">Block masking</p>
+                    </div>
+                </div>
+
             </div>
         </div>
         <!-- Posterior sampling. -->
     </section>
 
-    <!-- Concurrent Work. -->
-    <!-- <div class="columns is-centered">
-            <div class="column is-full-width">
-                <h2 class="title is-3">Related Links</h2>
+    <hr style="border:1px solid black; background: black; border: none; margin-left: 350px; margin-right: 350px">
+    <div class="columns is-centered">
+        <div class="column is-four-fifths">
+            <h1 class="title is-2 has-text-centered"> Theoretical Framework</h1>
+            <h2 class="title is-4 has-text-centered">Inpainting</h2>
+            <p>
+                Interpolation involves two multivariates random variables $x_0$ $\perp$ $x_1$ and a
+                parametrization by two scalars $\alpha$ and $\beta$ via the
+                very simple relation $I_{\alpha, \beta}(x_0,x_1) = \alpha x_0 + \beta x_1$, where $x_0 \sim
+                \rho_0$, $x_1 \sim \rho_1$, and $\alpha, \beta \in [0, 1]$. $\rho_0$ and $\rho_1$ are
+                respectively noise and data
+                distributions, living in $\mathbb{R}^n$. In most of the usual case, $\alpha \equiv 1-t$,
+                $\beta=1-\alpha\equiv t$.
+                By their nature of scalar parameters, they acts uniformally on every entries, letting little
+                flexibility in the diffusion process.
+                Now, defining $I_{\alpha, \beta}(x_0, x_1) = \alpha \odot x_0 + \beta \odot x_1$ with vector
+                $\alpha \in [0,1]^n$ and $\beta \in [0,1]^n$ significantly increases the
+                size of input space; pixel-wise
+                inpainting becomes now a trivial task.
 
-                <div class="content has-text-justified">
-                    <p>
-                        There's a lot of excellent work that was introduced around the same time as ours.
-                    </p>
-                    <p>
-                        <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a>
-                        introduces an idea similar to our windowed position encoding for coarse-to-fine
-                        optimization.
-                    </p>
-                    <p>
-                        <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a
-                            href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-                        both use deformation fields to model non-rigid scenes.
-                    </p>
-                    <p>
-                        Some works model videos with a NeRF by directly modulating the density, such as <a
-                            href="https://video-nerf.github.io/">Video-NeRF</a>, <a
-                            href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a
-                            href="https://neural-3d-video.github.io/">DyNeRF</a>
-                    </p>
-                    <p>
-                        There are probably many more by the time you are reading this. Check out <a
-                            href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF
-                            papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's
-                            curated list of NeRF papers</a>.
-                    </p>
-                </div>
-            </div>
-        </div> -->
-    <!--/ Concurrent Work. -->
+                Interpolants can be formulated as flow matching, whose drift $(v_t)_{t \in [0, 1]}$ is learned with
+                the loss:
+            <p style="background-color: #f0f8ff; padding: 1em; border-left: 4px solid #2970CC; margin: 1em 0;">
+                <b>Flow matching loss:</b>
+                <br><br>
+                $$
+                \mathcal{L}_{FM}(\hat v)=\mathbb{E}_{x_0 \sim \rho_0, x_1 \sim \rho_1, t \in
+                \mathcal{U}([0,
+                1])}[||\dot{\alpha}_t x_0 + \dot{\beta}_tx_1 - \hat v_t||^2] =
+                \mathbb{E}_{x_0 \sim \rho_0, x_1 \sim \rho_1, t \in
+                \mathcal{U}[0,1]}[||x_1-x_0 - \hat v_t||^2]$$
+                <b>Multitask Stochastic Interpolants:</b>
+                <br><br>
+                $$
+                \mathcal{L}_{MTSI}(\hat v)=\mathbb{E}_{x_0 \sim \rho_0, x_1 \sim \rho_1, \alpha \in
+                \mathcal{U}([0,1]^n)}[||\dot{\alpha}_t \odot x_0 + (1-\dot{\alpha}_t) \odot x_1 - \hat v_t||^2]
+                $$
+            </p>
+        </div>
+    </div>
 
-    <section class="section" id="BibTeX">
+
+    <section class=" section" id="BibTeX">
         <div class="columns is-centered">
             <div class="column is-four-fifths">
                 <h2 class="title is-3">BibTeX</h2>
