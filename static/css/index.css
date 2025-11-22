@@ -7,6 +7,11 @@ body {
   float: left;
 }
 
+hr {
+  border: 1px solid black;
+}
+
+
 .container {
   display: flex;
   /* Utiliser flexbox pour aligner l'image et les vidéos */
