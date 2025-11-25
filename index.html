@@ -63,46 +63,6 @@
 </head>
 
 <body>
-    <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a> -->
-
-    <!-- <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</nav> -->
-
 
     <section class="hero">
         <div class="hero-body">
@@ -198,55 +158,6 @@
         </div>
     </section>
 
-    <!-- <section class="hero is-light is-small">
-        <div class="hero-body">
-            <div class="container">
-                <div id="results-carousel" class="carousel results-carousel">
-                    <div class="item item-steve">
-                        <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-                            <source src="./static/videos/steve.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-chair-tp">
-                        <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-                            <source src="./static/videos/chair-tp.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-shiba">
-                        <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-                            <source src="./static/videos/shiba.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-fullbody">
-                        <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-                            <source src="./static/videos/fullbody.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-blueshirt">
-                        <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-                            <source src="./static/videos/blueshirt.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-mask">
-                        <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-                            <source src="./static/videos/mask.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-coffee">
-                        <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-                            <source src="./static/videos/coffee.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="item item-toby">
-                        <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-                            <source src="./static/videos/toby2.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <section class="section">
         <div class="container is-max-desktop" , style="margin-bottom: 100px;">
             <!-- Abstract. -->
@@ -330,7 +241,7 @@
                 <div class="container has-text-centered">
                     <div class="imgContainer" , display: flex;>
                         <img src="static/images/0089.png" height="52%" width="52%" ,
-                            style="position: relative; top: 50%; transform: translateY(12px);">
+                            style="position: relative; transform: translateY(12px);">
                         <p style="margin: 22px 0px 0px 0px;">Original image</p>
                     </div>
 
@@ -353,7 +264,7 @@
                 <div class="container has-text-centered" , style="margin-bottom: 20px">
                     <div class="imgContainer">
                         <img src="static/images/000034.jpg" height="50%" width="50%" ,
-                            style="position: relative; top: 50%; transform: translateY(12px);">
+                            style="position: relative; transform: translateY(12px);">
                         <p style="margin: 22px 0px 0px 0px;">Original image</p>
                     </div>
 
@@ -377,21 +288,190 @@
             <div class="imgContainer column is-four-fifths" style="justify-content: center">
                 <p>PSNR and SSIM metrics on CelebA and AFHQ-Cat datasets. A single generation was performed on each
                     image.</p>
-                <img src="./static/images/tab.jpg" width="600" height="475">
+                <table class="table" , style="width: 100%; text-align: center;">
+                    <thead>
+                        <tr>
+                            <th rowspan="3">Method</th>
+                            <th colspan="4">CelebA</th>
+                            <th colspan="4">AFHQ-Cat</th>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Random</th>
+                            <th colspan="2">Block</th>
+                            <th colspan="2">Random</th>
+                            <th colspan="2">Block</th>
+                        </tr>
+                        <tr>
+                            <th>PSNR</th>
+                            <th>SSIM</th>
+                            <th>PSNR</th>
+                            <th>SSIM</th>
+                            <th>PSNR</th>
+                            <th>SSIM</th>
+                            <th>PSNR</th>
+                            <th>SSIM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Degraded</td>
+                            <td>11.82</td>
+                            <td>0.197</td>
+                            <td>22.12</td>
+                            <td>0.742</td>
+                            <td>13.35</td>
+                            <td>0.234</td>
+                            <td>21.50</td>
+                            <td>0.744</td>
+                        </tr>
+                        <tr>
+                            <td><cite>pokle2024trainingfree</cite></td>
+                            <td>28.36</td>
+                            <td>0.865</td>
+                            <td>28.84</td>
+                            <td>0.914</td>
+                            <td>28.84</td>
+                            <td>0.838</td>
+                            <td>23.88</td>
+                            <td>0.874</td>
+                        </tr>
+                        <tr>
+                            <td><cite>hamu2024dflow</cite></td>
+                            <td>33.07</td>
+                            <td>0.938</td>
+                            <td>29.70</td>
+                            <td>0.893</td>
+                            <td>31.37</td>
+                            <td>0.888</td>
+                            <td>26.69</td>
+                            <td>0.833</td>
+                        </tr>
+                        <tr>
+                            <td><cite>zhang2024flow</cite></td>
+                            <td>32.33</td>
+                            <td>0.945</td>
+                            <td>29.40</td>
+                            <td>0.858</td>
+                            <td>31.76</td>
+                            <td>0.909</td>
+                            <td>25.85</td>
+                            <td>0.822</td>
+                        </tr>
+                        <tr>
+                            <td><cite>martin2024pnp</cite></td>
+                            <td>33.54</td>
+                            <td>0.953</td>
+                            <td><strong>30.59</strong></td>
+                            <td><strong>0.943</strong></td>
+                            <td>32.98</td>
+                            <td>0.930</td>
+                            <td>26.87</td>
+                            <td>0.904</td>
+                        </tr>
+                        <tr>
+                            <td>Ours</td>
+                            <td><strong>33.76</strong></td>
+                            <td><strong>0.967</strong></td>
+                            <td>29.98</td>
+                            <td>0.938</td>
+                            <td><strong>33.11</strong></td>
+                            <td><strong>0.945</strong></td>
+                            <td><strong>26.96</strong></td>
+                            <td><strong>0.914</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <p class="column has-text-justified">Of all the inpainting benchmarks, multitask stochastic
                     interpolants perform best while offering great flexibility, both on PSNR and SSIM metrics. The very
                     same model is employed for both block and random inpainting.</p>
             </div>
+        </div>
+        <div class="columns is-centered">
+            <div class=" column is-four-fifths">
+                <p class="has-text-justified"> You can perform multiple generations in a row on the
+                    same image without significantly deviating from the original image, see below. The eyes and mouth
+                    are masked then generated in turn.
+                </p>
+                <div class="container has-text-centered" , style="margin: 0px 0px 0 0px">
+                    <div class="imgContainer">
+                        <img src="static/images/original_cat.jpg" height="84%" width="84%" ,
+                            style="margin: 30px 0px 0px 0px; position: relative; transform: translateY(12px);">
+                        <p style="margin: 5px 0px 0px 0px;">Original image</p>
+                    </div>
+                    <div class="imgContainer">
+                        <img src="static/images/cat_eyes_masked.jpg" height="84%" width="84%" ,
+                            style="margin: 30px 0px 0px 0px; position: relative; transform: translateY(12px);">
+                        <p style="margin: 5px 0px 0px 0px;">Masked eyes</p>
+                    </div>
+                    <div class="imgContainer">
+                        <img src="static/images/cat_eyes_generated.jpg" height="84%" width="84%" ,
+                            style="margin: 30px 0px 0px 0px; position: relative; transform: translateY(12px);">
+                        <p style="margin: 5px 0px 0px 0px;">Generated eyes</p>
+                    </div>
+                    <div class="imgContainer" , style="position: relative; transform: translateY(18px);">
+                        <img src="static/images/cat_mouth_masked.jpg" height="84%" width="84%" ,
+                            style="margin: 30px 0px 0px 0px;">
+                        <p style="margin: -5px 0px 0px 0px;">Eye generated + Masked mouth</p>
+                    </div>
+                    <div class="imgContainer" , style="position: relative; transform: translateY(18px);">
+                        <img src="static/images/cat_mouth_generated.jpg" height="84%" width="84%" ,
+                            style="margin: 30px 0px 0px 0px;">
+                        <p style="margin: -5px 0px 0px 0px;">Eye generated + Mouth generated</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="columns is-centered">
+            <div class=" column is-four-fifths">
+                <div class="container has-text-centered" , style="margin: 0px 0px 0px 0px">
+                    <div class="imgContainer">
+                        <img src="static/images/000034.jpg" height="84%" width="84%" ,
+                            style="margin: 30px 0px 0px 0px; position: relative; transform: translateY(12px);">
+                        <p style="margin: 5px 0px 0px 0px;">Original image</p>
+                    </div>
+                    <div class="imgContainer">
+                        <img src="static/images/girl_eye_masked.jpg" height="84%" width="84%" ,
+                            style="margin: 30px 0px 0px 0px; position: relative; transform: translateY(12px);">
+                        <p style="margin: 5px 0px 0px 0px;">Masked eyes</p>
+                    </div>
+                    <div class="imgContainer">
+                        <img src="static/images/girl_eye_generated.jpg" height="84%" width="84%" ,
+                            style="margin: 30px 0px 0px 0px; position: relative; transform: translateY(12px);">
+                        <p style="margin: 5px 0px 0px 0px;">Generated eyes</p>
+                    </div>
+                    <div class="imgContainer" , style="position: relative; transform: translateY(18px);">
+                        <img src="static/images/girl_mouth_masked.jpg" height="84%" width="84%" ,
+                            style="margin: 30px 0px 0px 0px;">
+                        <p style="margin: -5px 0px 0px 0px;">Eye generated + Masked mouth</p>
+                    </div>
+                    <div class="imgContainer" , style="position: relative; transform: translateY(18px);">
+                        <img src="static/images/girl_mouth_generated.jpg" height="84%" width="84%" ,
+                            style="margin: 30px 0px 0px 0px;">
+                        <p style="margin: -5px 0px 0px 0px;">Eye generated + Mouth generated</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="arrow-container" , style="margin-bottom: 40px">
+            <div class="arrow"></div>
+            <div class="text">Generation flow</div>
         </div>
 
         <!-- Constrained planning. -->
         <div class="columns is-centered is-max-desktop">
             <div class="column is-four-fifths has-text-justified">
                 <h2 class="title is-4 has-text-centered">Constrained planning</h2>
-                <p>This problem takes root in Reinforcement Learning (RL). Take a maze and two end points. The task
+                <p>This problem takes root in Reinforcement Learning (RL). Take a maze and two end
+                    points.
+                    The
+                    task
                     is to find the shortest path joining them
-                    while abiding by the contraints imposed in the environment. With stochastic interpolants, to
-                    generate a path, you simply fix the first and last point, and eventually let diffuse all
+                    while abiding by the contraints imposed in the environment. With stochastic
+                    interpolants, to
+                    generate a path, you simply fix the first and last point, and eventually let
+                    diffuse all
                     other intermediates points.
                 </p>
                 <div class="container">
@@ -406,9 +486,13 @@
                     </video>
                 </div>
                 <p>
-                    The constraints do not necessarily have to apply only on the end points, you can also impose
-                    hard constraints on the pathway, assuming it remains feasible. A small white dot represents
-                    the constraints applied on the path, forcing it to take a detour. The path length adapts
+                    The constraints do not necessarily have to apply only on the end points, you can
+                    also
+                    impose
+                    hard constraints on the pathway, assuming it remains feasible. A small white dot
+                    represents
+                    the constraints applied on the path, forcing it to take a detour. The path
+                    length adapts
                     accordingly.
                 </p>
                 <div class="container">
@@ -439,7 +523,8 @@
                         <video controls autoplay controls muted loop playsinline height="60%" width="60%">
                             <source src="./static/videos/path2_c.mp4" type="video/mp4">
                         </video>
-                        <p>Path under a constraint at mid-length, here on the bottom-right corner.</p>
+                        <p>Path under a constraint at mid-length, here on the bottom-right corner.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -452,39 +537,47 @@
                 <h2 class="title is-4 has-text-centered">Posterior sampling</h2>
                 <p>
                     With the very same model, you can perform exact posterior sampling. Take the
-                    $\varphi^4$ model. Consider the system with energy $E$ under a null magnetic field and
+                    $\varphi^4$ model. Consider the system with energy $E$ under a null magnetic
+                    field and
                     assume a field configuration
-                    can be sampled with coefficients $\alpha$ and $\beta$. It yields the prior distribution.
+                    can be sampled with coefficients $\alpha$ and $\beta$. It yields the prior
+                    distribution.
                     Now, consider the same
                     system under a magnetic field $h$, its energy becomes $E_r=E + (h, \varphi)$.
-                    By simply shifting the field configuration during generation process: $\varphi_r=\varphi +
+                    By simply shifting the field configuration during generation process:
+                    $\varphi_r=\varphi
+                    +
                     \frac{\alpha^2}{\beta} h$,
-                    you can sample from the posterior without <b>retraining or any kind of approximation</b>. Training
-                    data was first generated with Hamiltonian MCMC, and then compared with data generated with
-                    stochastic interpolants.
+                    you can sample from the posterior without <b>retraining or any kind of
+                        approximation</b>.
+                    Training data was generated with Hamiltonian MCMC. The figure below shows that stochastic
+                    interpolants generate data that reproduce the magnetisation statistic $M(\varphi) = \frac1N
+                    \sum\limits_{a} \varphi(a)$ for $h = 0$ and $h \ne 0$ with a single model.
                 </p>
                 <div class="has-text-centered"><b>Model: $\varphi^4$</b></div>
-                <div class="container">
+                <div class="container" , style="margin-bottom:25px">
 
                     <div class="imgContainer">
                         <img src="static/images/phi4-post-1.png" height="80%" width="80%" style="float:left">
                     </div>
                 </div>
-                <div class="container has-text-centered">
+                <hr
+                    style="border:1px solid black; background: black; border: none; margin-left: 350px; margin-right: 350px; margin-bottom:-10px; margin-top: -10px;">
+
+                <div class="container has-text-centered" , style="margin-top: 15px">
                     <div class="imgContainer">
                         <img src="static/images/original.jpg" height="23.5%" width="23.5%" ,
                             style="position: relative; top: 50%; transform: translateY(12px);">
-                        <p style="margin: 22px 0px 0px 0px;">Original image</p>
+                        <p style="margin: 13px 0px 0px 0px;">Original image</p>
                     </div>
                     <div class="imgContainer">
-                        <video poster="" id="steve" autoplay controls muted loop playsinline height="51%" width="51%"
-                            style="position: relative; right: 180px;">
+                        <video poster="" id="steve" autoplay controls muted loop playsinline height="50%" width="50%"
+                            style="position: relative; right: 180px; transform: translateY(5px)">
                             <source src="static/videos/phi4.mp4" type="video/mp4">
                         </video>
                         <p style="position: relative; right: 180px;">Block masking</p>
                     </div>
                 </div>
-
             </div>
         </div>
         <!-- Posterior sampling. -->
@@ -494,43 +587,55 @@
     <div class="columns is-centered">
         <div class="column is-four-fifths">
             <h1 class="title is-2 has-text-centered"> Theoretical Framework</h1>
-            <h2 class="title is-4 has-text-centered">Inpainting</h2>
             <p>
                 Interpolation involves two multivariates random variables $x_0$ $\perp$ $x_1$ and a
                 parametrization by two scalars $\alpha$ and $\beta$ via the
                 very simple relation $I_{\alpha, \beta}(x_0,x_1) = \alpha x_0 + \beta x_1$, where $x_0 \sim
                 \rho_0$, $x_1 \sim \rho_1$, and $\alpha, \beta \in [0, 1]$. $\rho_0$ and $\rho_1$ are
                 respectively noise and data
-                distributions, living in $\mathbb{R}^n$. In most of the usual case, $\alpha \equiv 1-t$,
-                $\beta=1-\alpha\equiv t$.
+                distributions, living in $\mathbb{R}^n$. In most of the usual case, $\alpha=\alpha(t) \equiv 1-t$,
+                $\beta=\beta(t)=1-\alpha(t)\equiv t$. Interpolants can be formulated as
+                flow matching, whose drift $(v_\alpha)_{\alpha \in [0, 1]}$ is learned with the Flow matching loss.
                 By their nature of scalar parameters, they acts uniformally on every entries, letting little
                 flexibility in the diffusion process.
-                Now, defining $I_{\alpha, \beta}(x_0, x_1) = \alpha \odot x_0 + \beta \odot x_1$ with vector
-                $\alpha \in [0,1]^n$ and $\beta \in [0,1]^n$ significantly increases the
-                size of input space; pixel-wise
-                inpainting becomes now a trivial task.
-
-                Interpolants can be formulated as flow matching, whose drift $(v_t)_{t \in [0, 1]}$ is learned with
-                the loss:
+                <br>
+                Now, define $I_{\alpha, \beta}(x_0, x_1) = \alpha \odot x_0 + \beta \odot x_1$ with vector
+                $\alpha \in [0,1]^n$ and $\beta\equiv 1-\alpha \in [0,1]^n$. It significantly increases the
+                size of input space, but pixel-wise inpainting becomes a trivial task.
+            </p>
             <p style="background-color: #f0f8ff; padding: 1em; border-left: 4px solid #2970CC; margin: 1em 0;">
-                <b>Flow matching loss:</b>
+                <b>Vanilla Flow matching loss:</b>
                 <br><br>
                 $$
                 \mathcal{L}_{FM}(\hat v)=\mathbb{E}_{x_0 \sim \rho_0, x_1 \sim \rho_1, t \in
                 \mathcal{U}([0,
-                1])}[||\dot{\alpha}_t x_0 + \dot{\beta}_tx_1 - \hat v_t||^2] =
-                \mathbb{E}_{x_0 \sim \rho_0, x_1 \sim \rho_1, t \in
-                \mathcal{U}[0,1]}[||x_1-x_0 - \hat v_t||^2]$$
-                <b>Multitask Stochastic Interpolants:</b>
+                1])}[||\dot{\alpha}_t x_0 + \dot{\beta}_tx_1 - \hat v(\alpha_t x_0 + \beta_t x_1)||^2]
+                $$
+                $$
+                \quad \quad \, \, \,\,= \mathbb{E}_{x_0 \sim \rho_0, x_1 \sim \rho_1, t \in
+                \mathcal{U}[0,1]}[||x_1-x_0 - \hat v((1-t)x_0 + tx_1)||^2]
+                $$
+                <b>Multitask Stochastic Interpolants Loss:</b>
                 <br><br>
                 $$
-                \mathcal{L}_{MTSI}(\hat v)=\mathbb{E}_{x_0 \sim \rho_0, x_1 \sim \rho_1, \alpha \in
-                \mathcal{U}([0,1]^n)}[||\dot{\alpha}_t \odot x_0 + (1-\dot{\alpha}_t) \odot x_1 - \hat v_t||^2]
+                \mathcal{L}_{MTSI}(\hat v)=\mathbb{E}_{x_0 \sim \rho_0, x_1 \sim \rho_1, t \in
+                \mathcal{U}([0,1]^n)}[||\dot{\alpha}_t \odot x_0 + (1-\dot{\alpha}_t) \odot x_1 - \hat v(\alpha_t \odot
+                x_0 + (1-\alpha_t) \odot x_1)||^2]
                 $$
             </p>
+            <h2 class="title is-4 has-text-centered">Inpainting</h2>
+            <p>
+                If $\alpha$ is parameterized by a
+                vector time $t \in [0, 1]^n$ with for example $\alpha=1-t$, then you can:
+            </p>
+            <ul>
+                <li>Generate entry $i \in \llbracket 1, n\rrbracket$ by letting $t_i$ go from $0$ to $1$.</li>
+                <li>Keep entry $j$ fixed by imposing $t_j=1$ during all the generation process </li>
+            </ul>
+            <h2 class="title is-4 has-text-centered">Posterior sampling</h2>
+
         </div>
     </div>
-
 
     <section class=" section" id="BibTeX">
         <div class="columns is-centered">
