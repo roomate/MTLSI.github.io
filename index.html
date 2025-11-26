@@ -220,9 +220,16 @@
                             same diffusion, saving time and computing resources.
                         </p>
                     </div>
+                    <h2 class="title is-3">Presentation Video</h2>
+                    <div class="imgContainer">
+                        <video poster="" id="steve" autoplay controls muted loop playsinline height="100%" width="100%">
+                            <source src="./static/videos/output.mp4" type="video/mp4">
+                        </video>
+                    </div>
                 </div>
+                <!--/ Key Contributions. -->
+
             </div>
-            <!--/ Key Contributions. -->
         </div>
 
         <hr style="border:1px solid black; background: black; border: none; margin-left: 350px; margin-right: 350px">
@@ -235,7 +242,8 @@
                 <p class="has-text-justified">
                     Consider images from high-dimensional image datasets CelebA and AFHQ-Cat.
                     With multitask stochastic interpolants, pixel-wise inpainting becomes a trivial, one-shot task.
-                    Here, we consider block and random masking, probing two radically different inpainting situation.
+                    Here, we consider block and random masking, probing two radically different inpainting
+                    situation.
                 </p>
                 <div class="has-text-centered"><b>Dataset: AFHQ-Cat</b></div>
                 <div class="container has-text-centered">
@@ -383,14 +391,16 @@
                 </table>
 
                 <p class="column has-text-justified">Of all the inpainting benchmarks, multitask stochastic
-                    interpolants perform best while offering great flexibility, both on PSNR and SSIM metrics. The very
+                    interpolants perform best while offering great flexibility, both on PSNR and SSIM metrics. The
+                    very
                     same model is employed for both block and random inpainting.</p>
             </div>
         </div>
         <div class="columns is-centered">
             <div class=" column is-four-fifths">
                 <p class="has-text-justified"> You can perform multiple generations in a row on the
-                    same image without significantly deviating from the original image, see below. The eyes and mouth
+                    same image without significantly deviating from the original image, see below. The eyes and
+                    mouth
                     are masked then generated in turn.
                 </p>
                 <div class="container has-text-centered" , style="margin: 0px 0px 0 0px">
@@ -609,21 +619,22 @@
                 $$
                 \mathcal{L}_{FM}(\hat v)=\mathbb{E}_{x_0 \sim \rho_0, x_1 \sim \rho_1, t \in
                 \mathcal{U}([0,
-                1])}[||\dot{\alpha}_t x_0 + \dot{\beta}_tx_1 - \hat v(\alpha_t x_0 + \beta_t x_1)||^2]
+                1])}[||\dot{\alpha}_t x_0 + \dot{\beta}_tx_1 - \hat v_t(\alpha_t x_0 + \beta_t x_1)||^2]
                 $$
                 $$
                 \quad \quad \, \, \,\,= \mathbb{E}_{x_0 \sim \rho_0, x_1 \sim \rho_1, t \in
-                \mathcal{U}[0,1]}[||x_1-x_0 - \hat v((1-t)x_0 + tx_1)||^2]
+                \mathcal{U}[0,1]}[||x_1-x_0 - \hat v_t((1-t)x_0 + tx_1)||^2]
                 $$
                 <b>Multitask Stochastic Interpolants Loss:</b>
                 <br><br>
                 $$
                 \mathcal{L}_{MTSI}(\hat v)=\mathbb{E}_{x_0 \sim \rho_0, x_1 \sim \rho_1, t \in
-                \mathcal{U}([0,1]^n)}[||\dot{\alpha}_t \odot x_0 + (1-\dot{\alpha}_t) \odot x_1 - \hat v(\alpha_t \odot
+                \mathcal{U}([0,1]^n)}[||\dot{\alpha}_t \odot x_0 + (1-\dot{\alpha}_t) \odot x_1 - \hat v_t(\alpha_t
+                \odot
                 x_0 + (1-\alpha_t) \odot x_1)||^2]
                 $$
             </p>
-            <h2 class="title is-4 has-text-centered">Inpainting</h2>
+            <h2 class="title is-4">Inpainting</h2>
             <p>
                 If $\alpha$ is parameterized by a
                 vector time $t \in [0, 1]^n$ with for example $\alpha=1-t$, then you can:
@@ -632,8 +643,65 @@
                 <li>Generate entry $i \in \llbracket 1, n\rrbracket$ by letting $t_i$ go from $0$ to $1$.</li>
                 <li>Keep entry $j$ fixed by imposing $t_j=1$ during all the generation process </li>
             </ul>
-            <h2 class="title is-4 has-text-centered">Posterior sampling</h2>
-
+            <br>
+            <h2 class="title is-4">Posterior sampling</h2>
+            Consider the situation where $\rho_1$ is a prior, and let $r(x)=\langle Ax, x \rangle + \langle b, x\rangle$
+            a log-likelihood. The posterior then takes the natural form: $\rho_1^r\propto \rho_1 e^{r}$ and an
+            interpolant is: $I_r(x_0, x_1^r)=\alpha \odot x_0 + (1 - \alpha) \odot x_1^r$, with $x_0 \perp x_1^r$ and
+            $x_0 \sim N(0, \text{Id})$, $x_1^r \sim \rho_1^r$.
+            <p style="background-color: #f0f8ff; padding: 1em; border-left: 4px solid #2970CC; margin: 1em 0;">
+                <b>Theorem:</b>
+                <br><br>
+                Let
+                $$
+                \eta_0(\alpha,\beta,x) = \mathbb{E}\big[x_0| I(\alpha,\beta) = x\big], \qquad \eta_1(\alpha,\beta,x) =
+                \mathbb{E}\big[x_1| I(\alpha,\beta) = x\big],
+                $$
+                be the drifts associated with the interpolant and
+                $$
+                \eta^r_0(\alpha,\beta,x) = \mathbb{E}\big[x_0| I_r(\alpha,\beta) = x\big], \qquad
+                \eta^r_1(\alpha,\beta,x) =
+                \mathbb{E}\big[x_1^r| I_r(\alpha,\beta) = x\big],
+                $$
+                be the drifts associated with the interpolant. If $\alpha$ and $\beta$ are
+                invertible, then
+                $$
+                \eta^r_0(\alpha,\beta,x) = \alpha^{-1} \beta \beta_r^{-1} \alpha_r \eta_0(\alpha_r,\beta_r,x_r) +
+                \alpha^{-1} (x - \beta \beta_r^{-1} x_r), \quad
+                \eta^r_1(\alpha,\beta,x) =\eta_1(\alpha_r,\beta_r,x_r)
+                $$
+                as long as we can find a pair $(\alpha_r,\beta_r)$ that satisfies
+                $$
+                \beta_r^T \alpha_r^{-T} \alpha^{-1}_r \beta_r = \beta^T\alpha^{-T}\alpha^{-1} \beta - A
+                $$
+                and $x_r$ is given by
+                $$
+                x_r = \alpha_r \alpha_r^T \beta_r^{-T}\left( \beta^T \alpha^{-T} \alpha^{-1} x + b\right).
+                $$
+            </p>
+            <p style="background-color: #f0f8ff; padding: 1em; border-left: 4px solid #2970CC; margin: 1em 0;">
+                <b>Theorem [Posterior drift]:</b>
+                <br>
+                Assume $\beta = 1 - \alpha$ with $\alpha$ diagonal and invertible, and let
+                $$
+                \eta^r(\alpha,x) = \mathbb{E}\big[x_0-x_1|\alpha x_0 + (1-\alpha) x_1^r = x \big] = \eta_0^r(\alpha,
+                1-\alpha,
+                x) - \eta_1^r(\alpha, 1-\alpha, x)
+                $$
+                where the drifts $\eta_0^r$ and $\eta_1^r$ are defined above and
+                , respectively. Assume also that $A$ is diagonal, non-positive definite, and
+                invertible. Then, $\beta_r = 1 -\alpha_r$ and $\eta^r$ can be expressed as:
+                $$
+                \eta^r(\alpha, x) = \alpha^{-1}\alpha_r\eta(\alpha_r, x_r) + \alpha^{-1}(x - x^r),
+                $$
+                where $\eta(\alpha, x)$ is the drift of the prior, and $\alpha_r$ and $x_r$ are given by
+                $$
+                \alpha_r = \alpha\frac{ \sqrt{1 - 2\alpha + \alpha^2(1 - A)} -\alpha }{1 - 2\alpha - \alpha^2A}
+                $$
+                $$
+                x_r = \frac{\alpha_r^2(1-\alpha)}{\alpha^2 (1-\alpha_r)} \, x + \frac{\alpha_r^2}{(1-\alpha)}\, b,
+                $$
+            </p>
         </div>
     </div>
 
